@@ -1,10 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { FC } from 'react'
 
 import { IPostList } from '@src/types'
 import Post from '../PostListCard/PostListCard'
 
 const PostList: FC<IPostList> = ({ data }) => {
-  if (!data.pages.length || data.pages.length === 0) {
+  if (!data?.pages?.length || data?.pages?.length === 0) {
     return null
   }
   return (
