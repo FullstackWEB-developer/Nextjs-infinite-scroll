@@ -3,7 +3,7 @@ import { NextPage, GetStaticProps } from 'next'
 import Head from 'next/head'
 
 import { PostList, Loading } from '@src/components'
-import { getNewsPostsByLimit } from '@src/api'
+// import { getNewsPostsByLimit } from '@src/api'
 import { useGetNewsPostsByLimit, useIntersectionObserver } from '@src/hooks'
 import { getNewsPostById, getTopStories } from '@src/api/getNewsPosts'
 
@@ -13,6 +13,7 @@ const Home: NextPage = (props: any) => {
     limit: 10,
     topStories: props.topStories
   })
+  console.log("🚀 ~ file: index.tsx:16 ~ hasNextPage", hasNextPage)
 
   const loadMoreRef = useRef<HTMLHeadingElement>(null)
 
