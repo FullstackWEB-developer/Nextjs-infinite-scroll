@@ -11,9 +11,9 @@ const Home: NextPage = (props: any) => {
   const { data, hasNextPage, fetchNextPage, isError, isFetchingNextPage } = useGetNewsPostsByLimit({
     initialData: props.data,
     limit: 10,
-    topStories: props.topStories
+    topStories: props.topStories,
   })
-  console.log("🚀 ~ file: index.tsx:16 ~ hasNextPage", hasNextPage)
+  console.log('🚀 ~ file: index.tsx:16 ~ hasNextPage', hasNextPage)
 
   const loadMoreRef = useRef<HTMLHeadingElement>(null)
 
@@ -48,8 +48,6 @@ export default Home
 export const getStaticProps: GetStaticProps = async () => {
   // const data = await getNewsPostsByLimit(10)
   const topStories: string[] = await getTopStories()
-  const data = await Promise.all(
-    topStories.slice(0, 10).map(async (postId, i) => await getNewsPostById(postId))
-  );
+  const data = await Promise.all(topStories.slice(0, 10).map(async (postId) => await getNewsPostById(postId)))
   return { props: { data, topStories } }
 }
