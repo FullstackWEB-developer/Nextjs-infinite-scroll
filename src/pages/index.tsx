@@ -8,10 +8,11 @@ import { useGetNewsPostsByLimit, useIntersectionObserver } from '@src/hooks'
 import { getNewsPostById, getTopStories } from '@src/api/getNewsPosts'
 
 const Home: NextPage = (props: any) => {
+  const { initialData, topStories } = props
   const { data, hasNextPage, fetchNextPage, isError, isFetchingNextPage } = useGetNewsPostsByLimit({
-    initialData: props.data,
+    initialData,
     limit: 10,
-    topStories: props.topStories,
+    topStories,
   })
   console.log('🚀 ~ file: index.tsx:16 ~ hasNextPage', hasNextPage)
 
@@ -48,6 +49,6 @@ export default Home
 export const getStaticProps: GetStaticProps = async () => {
   // const data = await getNewsPostsByLimit(10)
   const topStories: string[] = await getTopStories()
-  const data = await Promise.all(topStories.slice(0, 10).map(async (postId) => await getNewsPostById(postId)))
-  return { props: { data, topStories } }
+  const initialData = await Promise.all(topStories.slice(0, 10).map(async (postId) => await getNewsPostById(postId)))
+  return { props: { initialData, topStories } }
 }

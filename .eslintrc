@@ -23,6 +23,8 @@
     "import/no-cycle": "off",
     "no-multi-assign": "off",
     "import/imports-first": ["error", "absolute-first"],
+    "no-return-await": "off",
+    "react/jsx-props-no-spreading": "off",
     "react/function-component-definition": [
       1,
       {
@@ -58,6 +60,7 @@
         "argsIgnorePattern": "^_"
       }
     ],
+    "@typescript-eslint/return-await": "off",
     "@typescript-eslint/await-thenable": "error",
     "@typescript-eslint/no-floating-promises": "error",
     "@typescript-eslint/no-misused-new": "error",

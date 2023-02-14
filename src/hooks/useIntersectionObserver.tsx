@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import { useEffect } from 'react'
 
 interface Props {
