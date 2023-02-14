@@ -1,5 +1,5 @@
 module.exports = {
   images: {
-    domains: ['i.annihil.us'],
+    domains: ['hacker-news.firebaseio.com'],
   },
 }

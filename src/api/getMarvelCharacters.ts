@@ -1,13 +1,13 @@
 import { fetch } from './fetch'
 
-export const getMarvelCharacterById = async (characterId: number | undefined) => {
-  const { data } = await fetch(`/public/characters/${characterId}`)
+export const getNewsPostById = async (postId: number | undefined) => {
+  const { data } = await fetch(`/public/posts/${postId}`)
 
   return data.data.results
 }
 
-export const getMarvelCharactersByLimit = async (limit: number) => {
-  const { data } = await fetch(`/public/characters?limit=${limit}&offset=${limit - 30}`)
+export const getNewsPostsByLimit = async (limit: number) => {
+  const { data } = await fetch(`/public/posts?limit=${limit}&offset=${limit - 30}`)
 
   return data.data
 }

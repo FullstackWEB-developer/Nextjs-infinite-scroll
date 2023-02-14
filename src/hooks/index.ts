@@ -1,3 +1,3 @@
 export { default as useIntersectionObserver } from './useIntersectionObserver'
-export { useGetMarvelCharactersByLimit } from './api/useGetMarvelCharacters'
+export { useGetNewsPostsByLimit } from './api/useGetNewsPosts'
 export { default as NProgress } from './useNProgress'

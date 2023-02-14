@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Character List Card renders correctly 1`] = `
+exports[`Post List Card renders correctly 1`] = `
 <div>
   <div
     class="flex-center space-x-4"

@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Character Detail Card renders correctly 1`] = `
+exports[`Post Detail Card renders correctly 1`] = `
 <div>
   <div
     class="max-w-lg mx-auto"
-    data-testid="character-detail-card"
+    data-testid="post-detail-card"
   >
     <div
       class="h-[600px] relative rounded overflow-hidden"

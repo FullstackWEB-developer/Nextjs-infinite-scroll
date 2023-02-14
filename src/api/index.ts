@@ -1,1 +1,1 @@
-export { getMarvelCharacterById, getMarvelCharactersByLimit } from './getMarvelCharacters'
+export { getNewsPostById, getNewsPostsByLimit } from './getNewsPosts'

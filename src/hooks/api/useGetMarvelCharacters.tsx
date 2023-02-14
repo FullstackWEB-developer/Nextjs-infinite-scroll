@@ -1,11 +1,11 @@
 import { useInfiniteQuery } from 'react-query'
 
-import { getMarvelCharactersByLimit } from '@src/api'
+import { getNewsPostsByLimit } from '@src/api'
 
-export const useGetMarvelCharactersByLimit = ({ initialData, limit: pageLimit }: any) => {
+export const useGetNewsPostsByLimit = ({ initialData, limit: pageLimit }: any) => {
   const { data, hasNextPage, fetchNextPage, isError, isFetchingNextPage } = useInfiniteQuery(
-    'getMarvelCharactersByLimit',
-    ({ pageParam = pageLimit }) => getMarvelCharactersByLimit(pageParam),
+    'getNewsPostsByLimit',
+    ({ pageParam = pageLimit }) => getNewsPostsByLimit(pageParam),
     {
       initialData,
       getNextPageParam: ({ total, limit }) => {

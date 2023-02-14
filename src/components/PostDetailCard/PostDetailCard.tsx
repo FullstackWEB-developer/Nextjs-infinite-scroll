@@ -2,29 +2,29 @@ import { FC } from 'react'
 import Image from 'next/image'
 
 import { findYearInString } from '@src/lib'
-import { ICharacter } from '@src/types'
+import { IPost } from '@src/types'
 
 interface Props {
-  character?: ICharacter
+  post?: IPost
 }
 
-const CharacterDetailCard: FC<Props> = ({ character }) => {
+const PostDetailCard: FC<Props> = ({ post }) => {
   return (
-    <div className="max-w-lg mx-auto" data-testid="character-detail-card">
+    <div className="max-w-lg mx-auto" data-testid="post-detail-card">
       <div className="h-[600px] relative rounded overflow-hidden">
         <Image
           layout="fill"
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNcWg8AAc8BJpg2zxQAAAAASUVORK5CYII="
           className="object-center object-cover"
-          src={`${character?.thumbnail?.path}.${character?.thumbnail?.extension}`}
-          alt={character?.name}
+          src={`${post?.thumbnail?.path}.${post?.thumbnail?.extension}`}
+          alt={post?.name}
         />
       </div>
-      <p className="font-bold text-center p-2 text-lg">{character?.name}</p>
-      <p className="font-medium text-center p-2">{character?.description}</p>
+      <p className="font-bold text-center p-2 text-lg">{post?.name}</p>
+      <p className="font-medium text-center p-2">{post?.description}</p>
       <ul className="space-y-2 mt-6 text-center">
-        {character?.comics?.items
+        {post?.comics?.items
           ?.slice(0, 10)
           .sort((a: any, b: any) => findYearInString(b.name) - findYearInString(a.name))
           ?.map((comics: any, index: any) => (
@@ -35,4 +35,4 @@ const CharacterDetailCard: FC<Props> = ({ character }) => {
   )
 }
 
-export default CharacterDetailCard
+export default PostDetailCard

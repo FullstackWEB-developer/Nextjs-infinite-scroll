@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 
 import Loading from './Loading'
 
-describe('Character List Card', () => {
+describe('Post List Card', () => {
   const LOADING = {
     loadingText: 'Loading',
     className: '',

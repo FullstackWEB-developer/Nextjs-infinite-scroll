@@ -1,6 +1,6 @@
-import { ICharacter } from '@src/types'
+import { IPost } from '@src/types'
 
-export interface ICharacterList {
+export interface IPostList {
   pagesParam?: []
   pages: IPages[]
 }
@@ -13,5 +13,5 @@ interface IPages {
 }
 
 interface IResults {
-  character: ICharacter[]
+  post: IPost[]
 }

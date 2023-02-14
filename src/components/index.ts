@@ -1,3 +1,3 @@
-export { default as CharacterList } from './CharacterList/CharacterList'
-export { default as CharacterDetailCard } from './CharacterDetailCard/CharacterDetailCard'
+export { default as PostList } from './PostList/PostList'
+export { default as PostDetailCard } from './PostDetailCard/PostDetailCard'
 export { default as Loading } from './Loading/Loading'

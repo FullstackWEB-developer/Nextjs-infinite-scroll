@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Character List Card renders correctly 1`] = `
+exports[`Post List Card renders correctly 1`] = `
 <div>
   <a
     class="group rounded overflow-hidden border bg-gray-700"
-    data-testid="character-list-card"
-    href="/character/1"
+    data-testid="post-list-card"
+    href="/post/1"
   >
     <div
       class="h-[200px] relative"
