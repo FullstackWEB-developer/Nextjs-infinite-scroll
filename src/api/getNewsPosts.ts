@@ -1,20 +1,19 @@
+import { IPost } from '@src/types'
 import { fetch } from './fetch'
 
 export const getNewsPostById = async (postId: number | string | undefined) => {
   const { data } = await fetch(`/item/${postId}.json`)
-
-  console.log("🚀 ~ file: getNewsPosts.ts:6 ~ getNewsPostById ~ data", data)
-  return data.data.results
+  return data
 }
 
 export const getTopStories = async () => {
   const { data } = await fetch(`/topstories.json`)
-  return data.data
+  return data
 }
 
-export const getNewsPostsByLimit = async (limit: number) => {
-  const { data } = await fetch(`/topstories.json`)
-
-  console.log("🚀 ~ file: getNewsPosts.ts:13 ~ getNewsPostsByLimit ~ data", data)
-  return data.data
+export const getNewsPostsByLimit = async (limit: number, topStories: string[]) => {
+  const data: IPost[] = await Promise.all(
+    topStories.slice(limit - 10, limit).map(async (postId, i) => await getNewsPostById(postId)),
+  )
+  return data
 }

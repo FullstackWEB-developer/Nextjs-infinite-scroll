@@ -2,15 +2,15 @@ import { useInfiniteQuery } from 'react-query'
 
 import { getNewsPostsByLimit } from '@src/api'
 
-export const useGetNewsPostsByLimit = ({ initialData, limit: pageLimit }: any) => {
+export const useGetNewsPostsByLimit = ({ initialData, limit: pageLimit, topStories }: any) => {
   const { data, hasNextPage, fetchNextPage, isError, isFetchingNextPage } = useInfiniteQuery(
     'getNewsPostsByLimit',
-    ({ pageParam = pageLimit }) => getNewsPostsByLimit(pageParam),
+    ({ pageParam = pageLimit }) => getNewsPostsByLimit(pageParam, topStories),
     {
       initialData,
-      getNextPageParam: ({ total, limit }) => {
-        const nextPage = limit + 30
-        return nextPage <= total ? nextPage : undefined
+      getNextPageParam: (lastPage, allPages) => {
+        const nextPage = lastPage.length + 10
+        return nextPage <= allPages.flat(2).length ? nextPage : undefined
       },
     },
   )
