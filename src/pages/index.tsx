@@ -14,7 +14,6 @@ const Home: NextPage = (props: any) => {
     limit: 10,
     topStories,
   })
-  console.log('🚀 ~ file: index.tsx:16 ~ hasNextPage', hasNextPage)
 
   const loadMoreRef = useRef<HTMLHeadingElement>(null)
 
