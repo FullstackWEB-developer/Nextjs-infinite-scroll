@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 export const fetch = Axios.create({
-  baseURL: 'https://hacker-news.firebaseio.com/v0/topstories.json',
+  baseURL: 'https://hacker-news.firebaseio.com/v0',
   params: {
     print: 'pretty',
   },

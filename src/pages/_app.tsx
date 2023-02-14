@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <NProgress />
       <QueryClientProvider client={queryClient}>
         <Component {...pageProps} />
-        <ReactQueryDevtools initialIsOpen={false} />
+        <ReactQueryDevtools initialIsOpen={true} />
       </QueryClientProvider>
     </>
   )

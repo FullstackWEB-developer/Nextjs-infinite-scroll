@@ -5,11 +5,12 @@ import Head from 'next/head'
 import { PostList, Loading } from '@src/components'
 import { getNewsPostsByLimit } from '@src/api'
 import { useGetNewsPostsByLimit, useIntersectionObserver } from '@src/hooks'
+import { getNewsPostById, getTopStories } from '@src/api/getNewsPosts'
 
 const Home: NextPage = (props: any) => {
   const { data, hasNextPage, fetchNextPage, isError, isFetchingNextPage } = useGetNewsPostsByLimit({
     initialData: props.data,
-    limit: 30,
+    limit: 10,
   })
 
   const loadMoreRef = useRef<HTMLHeadingElement>(null)
@@ -43,6 +44,15 @@ const Home: NextPage = (props: any) => {
 export default Home
 
 export const getStaticProps: GetStaticProps = async () => {
-  const data = await getNewsPostsByLimit(30)
+  const data = await getNewsPostsByLimit(10)
+  const topStories: string[] = await getTopStories()
+  const asyncRes = await Promise.all(
+    topStories.map(async (postId, i) => {
+      const data = await getNewsPostById(postId)
+    })
+  );
+  console.log("🚀 ~ file: index.tsx:54 ~ constgetStaticProps:GetStaticProps= ~ asyncRes", asyncRes)
+  
+
   return { props: { data } }
 }
