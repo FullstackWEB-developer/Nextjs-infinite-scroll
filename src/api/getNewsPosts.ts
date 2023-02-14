@@ -12,6 +12,7 @@ export const getTopStories = async () => {
 }
 
 export const getNewsPostsByLimit = async (limit: number, topStories: string[]) => {
+  console.log("🚀 ~ file: getNewsPosts.ts:15 ~ getNewsPostsByLimit ~ limit", limit)
   const data: IPost[] = await Promise.all(
     topStories.slice(limit - 10, limit).map(async (postId, i) => await getNewsPostById(postId)),
   )
