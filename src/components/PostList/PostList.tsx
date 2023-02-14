@@ -1,18 +1,16 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { FC } from 'react'
 
 import { IPostList } from '@src/types'
 import Post from '../PostListCard/PostListCard'
 
-interface Props {
-  data: IPostList
-}
-
-const PostList: FC<Props> = ({ data }) => {
+const PostList: FC<IPostList> = ({ data }) => {
+  if (!data?.pages?.length || data?.pages?.length === 0) {
+    return null
+  }
   return (
-    <div data-testid="post-list" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4  gap-8">
-      {data?.pages?.map(({ results }: any) =>
-        results?.map((post: any) => <Post key={post.id} post={post} />),
-      )}
+    <div data-testid="post-list" className="flex flex-col justify-center">
+      {data.pages.map((results) => results.map((post) => <Post key={post.id} post={post} />))}
     </div>
   )
 }

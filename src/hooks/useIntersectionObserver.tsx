@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import { useEffect } from 'react'
 
 interface Props {
@@ -42,6 +43,7 @@ const useIntersectionObserver = ({
     return () => {
       observer.unobserve(el)
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [target.current, enabled])
 }
 
